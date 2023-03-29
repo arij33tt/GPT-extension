@@ -1,0 +1,38 @@
+{
+    "manifest_version": 3,
+    "name": "PromptPal",
+    "description": "A chrome extension to store and access your favorite prompts",
+    "version": "1.0.1",
+    "icons": {
+      "16": "icon16.png",
+      "32": "icon32.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    },                                                                              
+
+
+    
+
+    "permissions": [
+      "activeTab",
+      "storage"
+  ],
+  "background.service_worker": {
+    "scripts": [
+      "popup.js",
+      "content.js"
+    ]
+  },
+    "content_scripts": [
+      {
+        "matches": ["https://chat.openai.com/chat"],
+        "js": ["content.js","popup.js","content.js"],
+        "css": ["style.css"]
+      }
+    ],
+    "action": {
+      "default_icon": "icon128.png",
+      "default_title": "PromptPal"
+    }
+  }
+  
